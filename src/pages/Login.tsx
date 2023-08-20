@@ -1,12 +1,12 @@
-import { useState } from 'react';
+import { useState } from 'react'
 
 function Login() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
 
   const handleLogin = () => {
     // Perform login logic here (e.g., API call to backend)
-  };
+  }
 
   return (
     <div>
@@ -25,7 +25,7 @@ function Login() {
       />
       <button onClick={handleLogin}>Login</button>
     </div>
-  );
+  )
 }
 
-export default Login;
+export default Login

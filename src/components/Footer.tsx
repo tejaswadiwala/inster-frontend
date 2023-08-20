@@ -1,7 +1,5 @@
 function Footer() {
-  return (
-    <p>Inster</p>
-  );
+  return <p>Inster</p>
 }
 
-export default Footer;
+export default Footer
