@@ -1,33 +1,21 @@
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'
-import Home from '../pages/Home'
-import Login from '../pages/Login'
-import Register from '../pages/Register'
+import { Link } from 'react-router-dom'
+import '../css/Header.css'
 
 function Header() {
   return (
-    <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-            <li>
-              <Link to="/register">Register</Link>
-            </li>
-          </ul>
-        </nav>
-
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-        </Routes>
-      </div>
-    </Router>
+    <div className="header">
+      <nav>
+        <Link className="header-link" to="/">
+          Home
+        </Link>
+        <Link className="header-link" to="/login">
+          Login
+        </Link>
+        <Link className="header-link" to="/register">
+          Register
+        </Link>
+      </nav>
+    </div>
   )
 }
 
