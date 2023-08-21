@@ -1,0 +1,14 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 120px); /* Subtract header and footer height */
+  }
+  
+  .home-title {
+    font-size: 2.5rem;
+    color: #333;
+    text-align: center;
+  }
+  

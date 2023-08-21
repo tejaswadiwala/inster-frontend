@@ -1,7 +1,11 @@
-import '../App.css'
+import '../css/Home.css'
 
 function Home() {
-  return <h1> Welcome to Inster </h1>
+  return (
+    <div className="home-container">
+      <h1 className="home-title">Welcome to Inster</h1>
+    </div>
+  )
 }
 
 export default Home

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import InsterController from '../controllers/inster/InsterController'
+import '../css/Register.css'
 
 function Register() {
   const [username, setUsername] = useState('')
@@ -27,19 +28,21 @@ function Register() {
     }
   }
   return (
-    <div>
-      <h2>Register</h2>
+    <div className="register-container">
+      <h2 className="register-title">Register</h2>
       {registrationStatus === 'success' && (
         <p>Registration successful! Redirecting to login...</p>
       )}
       {registrationStatus === 'error' && (
         <p>Registration failed. Please try again.</p>
       )}
-      <form onSubmit={handleRegister}>
+      <form className="register-form" onSubmit={handleRegister}>
         <div>
           <label>Username:</label>
           <input
+            className="register-input"
             type="text"
+            placeholder="Username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
@@ -47,7 +50,9 @@ function Register() {
         <div>
           <label>Password:</label>
           <input
+            className="register-input"
             type="password"
+            placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
@@ -55,12 +60,16 @@ function Register() {
         <div>
           <label>Email:</label>
           <input
+            className="register-input"
             type="email"
+            placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <button type="submit">Register</button>
+        <button className="register-button" type="submit">
+          Register
+        </button>
       </form>
     </div>
   )
