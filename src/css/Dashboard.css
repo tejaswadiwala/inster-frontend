@@ -1,37 +1,58 @@
 .dashboard-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: calc(100vh - 120px); /* Subtract header and footer height */
-  }
-  
-  .dashboard-title {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-  
-  .dashboard-content {
-    width: 300px;
-    text-align: center;
-    margin-top: 1rem;
-  }
-  
-  .dashboard-logout-button {
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 120px); /* Subtract header and footer height */
+}
 
-  .dashboard-generate-button {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-  }
-  
+.dashboard-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center; /* Center align the title */
+}
+
+.dashboard-content {
+  width: 300px;
+  text-align: center;
+  margin: 0 auto; /* Center align horizontally */
+  max-height: calc(100vh - 220px); /* Subtract header and footer height */
+  overflow-y: auto;
+}
+
+.dashboard-logout-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  align-self: center; /* Center align the logout button */
+  margin-top: 1rem;
+}
+
+.dashboard-generate-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.generated-image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.generated-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.generated-details {
+  margin-top: 10px;
+  text-align: center;
+}
