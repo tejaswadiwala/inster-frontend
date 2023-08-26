@@ -1,12 +1,9 @@
 import { useState } from 'react'
 import '../css/Dashboard.css'
-import { useNavigate } from 'react-router-dom'
-import handleLogout from './functions/handleLogout'
 import InsterController from '../controllers/inster/InsterController'
 import { GenerateProductInfoDTO } from '../controllers/inster/dtos/GenerateProductInfoDTO'
 
 function Dashboard() {
-  const navigate = useNavigate()
   const [generatedProductInfo, setGeneratedProductInfo] =
     useState<GenerateProductInfoDTO | null>(null)
 
@@ -47,12 +44,6 @@ function Dashboard() {
           Generate Post
         </button>
       </div>
-      <button
-        className="dashboard-logout-button"
-        onClick={() => handleLogout(navigate)}
-      >
-        Logout
-      </button>
     </div>
   )
 }
