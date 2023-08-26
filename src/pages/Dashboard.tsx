@@ -3,20 +3,20 @@ import '../css/Dashboard.css'
 import { useNavigate } from 'react-router-dom'
 import handleLogout from './functions/handleLogout'
 import InsterController from '../controllers/inster/InsterController'
-import { GenerateImageDTO } from '../controllers/inster/dtos/GenerateImageDTO'
+import { GenerateProductInfoDTO } from '../controllers/inster/dtos/GenerateProductInfoDTO'
 
 function Dashboard() {
   const navigate = useNavigate()
-  const [generatedImage, setGeneratedImage] = useState<GenerateImageDTO | null>(
-    null
-  )
+  const [generatedProductInfo, setGeneratedProductInfo] =
+    useState<GenerateProductInfoDTO | null>(null)
 
   const handleGeneratePost = async () => {
     try {
       const insterController: InsterController = new InsterController('123')
-      const apiResponse = await insterController.generateImage()
-      const generateImageResponse: GenerateImageDTO = apiResponse.data.data
-      setGeneratedImage(generateImageResponse)
+      const apiResponse = await insterController.generateProductInfo()
+      const generateProductInfoResponse: GenerateProductInfoDTO =
+        apiResponse.data.data
+      setGeneratedProductInfo(generateProductInfoResponse)
     } catch (error) {
       console.error('Error generating image:', error)
     }
@@ -27,16 +27,16 @@ function Dashboard() {
       <h2 className="dashboard-title">Dashboard</h2>
       <div className="dashboard-content">
         <p>Welcome to the dashboard! You are logged in.</p>
-        <div className="dashboard-generated-image">
-          {generatedImage && (
-            <div className="generated-image-container">
+        <div className="dashboard-generated-product-info">
+          {generatedProductInfo && (
+            <div className="generated-product-info-container">
               <img
-                className="generated-image"
-                src={generatedImage.imageUrl}
-                alt={generatedImage.title}
+                className="generated-product-info"
+                src={generatedProductInfo.imageUrl}
+                alt={generatedProductInfo.title}
               />
-              <h3>{generatedImage.title}</h3>
-              <p>{generatedImage.description}</p>
+              <h3>{generatedProductInfo.title}</h3>
+              <p>{generatedProductInfo.caption}</p>
             </div>
           )}
         </div>

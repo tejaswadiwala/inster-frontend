@@ -3,7 +3,7 @@ import { RegistrationRequestDTO } from './dtos/RegistrationRequestDTO'
 import { register } from './register'
 import { LoginRequestDTO } from './dtos/LoginRequestDTO'
 import { login } from './login'
-import { generateImage } from './generateImage'
+import { generateProductInfo } from './generateProductInfo'
 
 class InsterController {
   private requestId: string
@@ -22,8 +22,8 @@ class InsterController {
     return login(loginRequest, this.requestId)
   }
 
-  public async generateImage(): Promise<AxiosResponse> {
-    return generateImage(this.requestId)
+  public async generateProductInfo(): Promise<AxiosResponse> {
+    return generateProductInfo(this.requestId)
   }
 }
 
