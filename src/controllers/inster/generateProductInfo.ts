@@ -2,10 +2,10 @@ import Helpers from '../../helpers/Helpers'
 import { insterAxiosInstance } from './insterAuth'
 import { AxiosResponse } from 'axios'
 
-export const generateImage = async (
+export const generateProductInfo = async (
   requestId: string
 ): Promise<AxiosResponse> => {
-  const type = 'InsterController.generateImage'
+  const type = 'InsterController.generateProductInfo'
   try {
     console.log({
       type: type,
@@ -14,7 +14,7 @@ export const generateImage = async (
     })
 
     const helpers: Helpers = new Helpers(requestId)
-    const endpoint = '/post/generateImage'
+    const endpoint = '/post/generateProductInfo'
 
     const response: AxiosResponse = await helpers.axiosHelper.getResponse(
       insterAxiosInstance,
