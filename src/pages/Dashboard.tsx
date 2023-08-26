@@ -6,6 +6,7 @@ import { GenerateProductInfoDTO } from '../controllers/inster/dtos/GenerateProdu
 function Dashboard() {
   const [generatedProductInfo, setGeneratedProductInfo] =
     useState<GenerateProductInfoDTO | null>(null)
+  const [imageGenerated, setImageGenerated] = useState(false)
 
   const handleGeneratePost = async () => {
     try {
@@ -14,9 +15,15 @@ function Dashboard() {
       const generateProductInfoResponse: GenerateProductInfoDTO =
         apiResponse.data.data
       setGeneratedProductInfo(generateProductInfoResponse)
+      setImageGenerated(true) // Set imageGenerated to true
     } catch (error) {
       console.error('Error generating image:', error)
     }
+  }
+
+  const handlePublishImage = () => {
+    // Add logic to publish the image
+    // This function will be called when the "Publish Image" button is clicked
   }
 
   return (
@@ -33,7 +40,7 @@ function Dashboard() {
                 alt={generatedProductInfo.title}
               />
               <h3>{generatedProductInfo.title}</h3>
-              <p>{generatedProductInfo.caption}</p>
+              {/* TODO: Uncomment this: <p>{generatedProductInfo.caption}</p>*/}
             </div>
           )}
         </div>
@@ -41,8 +48,18 @@ function Dashboard() {
           className="dashboard-generate-button"
           onClick={handleGeneratePost}
         >
-          Generate Post
+          {imageGenerated ? 'Regenerate Image' : 'Generate Image'}
         </button>
+        {imageGenerated && (
+          <div className="button-spacing">
+            <button
+              className="dashboard-publish-button"
+              onClick={handlePublishImage}
+            >
+              Publish Image
+            </button>
+          </div>
+        )}
       </div>
     </div>
   )
