@@ -21,9 +21,13 @@ function Dashboard() {
     }
   }
 
-  const handlePublishImage = () => {
-    // Add logic to publish the image
-    // This function will be called when the "Publish Image" button is clicked
+  const handlePublishImage = async () => {
+    try {
+      const insterController: InsterController = new InsterController('123')
+      await insterController.postPhotoToInstagram()
+    } catch (error) {
+      console.error('Error posting image to Instagram:', error)
+    }
   }
 
   return (
