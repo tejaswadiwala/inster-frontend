@@ -4,6 +4,7 @@ import { register } from './register'
 import { LoginRequestDTO } from './dtos/LoginRequestDTO'
 import { login } from './login'
 import { generateProductInfo } from './generateProductInfo'
+import { postPhotoToInstagram } from './postPhotoToInstagram'
 
 class InsterController {
   private requestId: string
@@ -24,6 +25,9 @@ class InsterController {
 
   public async generateProductInfo(): Promise<AxiosResponse> {
     return generateProductInfo(this.requestId)
+  }
+  public async postPhotoToInstagram(): Promise<AxiosResponse> {
+    return postPhotoToInstagram(this.requestId)
   }
 }
 
