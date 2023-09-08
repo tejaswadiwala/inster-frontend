@@ -10,6 +10,7 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import Footer from './components/Footer'
 import Dashboard from './pages/Dashboard'
+import PrivacyPolicy from './pages/PrivacyPolicy'
 
 function App() {
   const authToken = localStorage.getItem('authToken')
@@ -25,6 +26,7 @@ function App() {
             path="/dashboard"
             element={authToken ? <Dashboard /> : <Navigate to="/login" />}
           />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Routes>
         <Footer />
       </div>

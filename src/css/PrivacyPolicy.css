@@ -1,0 +1,12 @@
+.privacy-policy-content {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    overflow-y: scroll;
+    max-height: 70vh;
+  }
+  
+  .privacy-policy-content p {
+    line-height: 1.6;
+  }
+  
