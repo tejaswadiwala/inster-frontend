@@ -1,12 +1,17 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import '../css/Dashboard.css'
 import InsterController from '../controllers/inster/InsterController'
 import { GenerateProductInfoDTO } from '../controllers/inster/dtos/GenerateProductInfoDTO'
+import InstagramMetadata from './components/InstagramMetadata'
+import { getBasicMetadata } from '../controllers/inster/getBasicMetadata'
+import { BasicMetadataRequest } from '../controllers/inster/models/BasicMetadataRequest'
+import { BasicMetadataResponse } from '../controllers/inster/dtos/BasicMetadataResponseDTO'
 
 function Dashboard() {
   const [generatedProductInfo, setGeneratedProductInfo] =
     useState<GenerateProductInfoDTO | null>(null)
   const [imageGenerated, setImageGenerated] = useState(false)
+  const [basicMetadata, setBasicMetadata] = useState<BasicMetadataResponse>()
 
   const handleGeneratePost = async () => {
     try {
@@ -30,11 +35,35 @@ function Dashboard() {
     }
   }
 
+  const handleBasicMetadata = async () => {
+    try {
+      const basicMetadataRequest: BasicMetadataRequest = {
+        id: '123', // TODO: Rethink how to pass id for different clients
+        fields: {
+          followers_count: true,
+          name: true,
+          profile_picture_url: true,
+          username: true,
+        },
+      }
+      const apiResponse = await getBasicMetadata(basicMetadataRequest, '121')
+      setBasicMetadata(apiResponse.data.data)
+    } catch (error) {
+      console.error('Error posting image to Instagram:', error)
+    }
+  }
+
+  useEffect(() => {
+    // Call handleBasicMetadata when the component mounts
+    handleBasicMetadata()
+  }, [])
+
   return (
     <div className="dashboard-page">
       <h2 className="dashboard-title">Dashboard</h2>
       <div className="dashboard-content">
         <p>Welcome to the dashboard! You are logged in.</p>
+        {basicMetadata && InstagramMetadata(basicMetadata)}
         <div className="dashboard-generated-product-info">
           {generatedProductInfo && (
             <div className="generated-product-info-container">
