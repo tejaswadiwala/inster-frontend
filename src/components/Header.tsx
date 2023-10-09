@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom'
 import '../css/Header.css'
-import handleLogout from '../pages/functions/handleLogout'
+import handleLogout from '../pages/components/handleLogout'
 
 function Header() {
   const navigate = useNavigate()

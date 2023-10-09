@@ -1,0 +1,16 @@
+.instagram-metadata-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 16px;
+  }
+  
+  .profile-picture {
+    width: 100px;
+    height: 100px;
+    object-fit: cover; /* Ensures the image maintains its aspect ratio */
+    border-radius: 50%; /* Makes the image a circle */
+    margin-top: 16px;
+  }
+  
